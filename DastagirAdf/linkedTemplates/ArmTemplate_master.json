@@ -1,0 +1,579 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DastagirAdf"
+		},
+		"AzureApiTable_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureApiTable'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStorage3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage3'"
+		},
+		"AzureBlobStorage4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage4'"
+		},
+		"AzureBlobStorage5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage5'"
+		},
+		"AzureBlobStorage6_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage6'"
+		},
+		"AzureSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
+		"ExcelLink_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ExcelLink'"
+		},
+		"JsonSqlDatbase_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'JsonSqlDatbase'"
+		},
+		"RestService1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'RestService1'"
+		},
+		"Restapi_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Restapi'"
+		},
+		"apijson_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'apijson'"
+		},
+		"azurelink_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'azurelink'"
+		},
+		"blogservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blogservice'"
+		},
+		"exceldata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'exceldata'"
+		},
+		"exceldest_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'exceldest'"
+		},
+		"exceldestination_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'exceldestination'"
+		},
+		"excelorderes_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'excelorderes'"
+		},
+		"excelorders_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'excelorders'"
+		},
+		"excelsource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'excelsource'"
+		},
+		"execl_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'execl'"
+		},
+		"json_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'json'"
+		},
+		"jsonapin_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'jsonapin'"
+		},
+		"jsonsource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'jsonsource'"
+		},
+		"newservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'newservice'"
+		},
+		"salesdatas_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'salesdatas'"
+		},
+		"salesdestination_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'salesdestination'"
+		},
+		"tail5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'tail5'"
+		},
+		"trail1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'trail1'"
+		},
+		"trail2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'trail2'"
+		},
+		"traildata2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'traildata2'"
+		},
+		"trailmetadata1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'trailmetadata1'"
+		},
+		"AzureApiTable_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"AzureApiTable_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"AzureApiTable_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"JsonSqlDatbase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"JsonSqlDatbase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"JsonSqlDatbase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/todos/1"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"Restapi_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/users"
+		},
+		"Restapi_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"azurelink_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"azurelink_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"azurelink_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"exceldest_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"exceldest_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"exceldest_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"exceldestination_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"exceldestination_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"exceldestination_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"excelorderes_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"excelorderes_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"excelorderes_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"jsonapin_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"jsonapin_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"jsonapin_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"salesdatas_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"salesdatas_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"salesdatas_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"salesdestination_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"salesdestination_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"salesdestination_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DastagirAdf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureApiTable_password": {
+						"value": "[parameters('AzureApiTable_password')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureBlobStorage3_connectionString": {
+						"value": "[parameters('AzureBlobStorage3_connectionString')]"
+					},
+					"AzureBlobStorage4_connectionString": {
+						"value": "[parameters('AzureBlobStorage4_connectionString')]"
+					},
+					"AzureBlobStorage5_connectionString": {
+						"value": "[parameters('AzureBlobStorage5_connectionString')]"
+					},
+					"AzureBlobStorage6_connectionString": {
+						"value": "[parameters('AzureBlobStorage6_connectionString')]"
+					},
+					"AzureSqlDatabase1_password": {
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"AzureSqlDatabase2_password": {
+						"value": "[parameters('AzureSqlDatabase2_password')]"
+					},
+					"ExcelLink_connectionString": {
+						"value": "[parameters('ExcelLink_connectionString')]"
+					},
+					"JsonSqlDatbase_password": {
+						"value": "[parameters('JsonSqlDatbase_password')]"
+					},
+					"RestService1_password": {
+						"value": "[parameters('RestService1_password')]"
+					},
+					"Restapi_password": {
+						"value": "[parameters('Restapi_password')]"
+					},
+					"apijson_connectionString": {
+						"value": "[parameters('apijson_connectionString')]"
+					},
+					"azurelink_password": {
+						"value": "[parameters('azurelink_password')]"
+					},
+					"blogservice_connectionString": {
+						"value": "[parameters('blogservice_connectionString')]"
+					},
+					"exceldata_connectionString": {
+						"value": "[parameters('exceldata_connectionString')]"
+					},
+					"exceldest_password": {
+						"value": "[parameters('exceldest_password')]"
+					},
+					"exceldestination_password": {
+						"value": "[parameters('exceldestination_password')]"
+					},
+					"excelorderes_password": {
+						"value": "[parameters('excelorderes_password')]"
+					},
+					"AzureApiTable_properties_typeProperties_server": {
+						"value": "[parameters('AzureApiTable_properties_typeProperties_server')]"
+					},
+					"AzureApiTable_properties_typeProperties_database": {
+						"value": "[parameters('AzureApiTable_properties_typeProperties_database')]"
+					},
+					"AzureApiTable_properties_typeProperties_userName": {
+						"value": "[parameters('AzureApiTable_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
+					},
+					"JsonSqlDatbase_properties_typeProperties_server": {
+						"value": "[parameters('JsonSqlDatbase_properties_typeProperties_server')]"
+					},
+					"JsonSqlDatbase_properties_typeProperties_database": {
+						"value": "[parameters('JsonSqlDatbase_properties_typeProperties_database')]"
+					},
+					"JsonSqlDatbase_properties_typeProperties_userName": {
+						"value": "[parameters('JsonSqlDatbase_properties_typeProperties_userName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_userName": {
+						"value": "[parameters('RestService1_properties_typeProperties_userName')]"
+					},
+					"Restapi_properties_typeProperties_url": {
+						"value": "[parameters('Restapi_properties_typeProperties_url')]"
+					},
+					"Restapi_properties_typeProperties_userName": {
+						"value": "[parameters('Restapi_properties_typeProperties_userName')]"
+					},
+					"azurelink_properties_typeProperties_server": {
+						"value": "[parameters('azurelink_properties_typeProperties_server')]"
+					},
+					"azurelink_properties_typeProperties_database": {
+						"value": "[parameters('azurelink_properties_typeProperties_database')]"
+					},
+					"azurelink_properties_typeProperties_userName": {
+						"value": "[parameters('azurelink_properties_typeProperties_userName')]"
+					},
+					"exceldest_properties_typeProperties_server": {
+						"value": "[parameters('exceldest_properties_typeProperties_server')]"
+					},
+					"exceldest_properties_typeProperties_database": {
+						"value": "[parameters('exceldest_properties_typeProperties_database')]"
+					},
+					"exceldest_properties_typeProperties_userName": {
+						"value": "[parameters('exceldest_properties_typeProperties_userName')]"
+					},
+					"exceldestination_properties_typeProperties_server": {
+						"value": "[parameters('exceldestination_properties_typeProperties_server')]"
+					},
+					"exceldestination_properties_typeProperties_database": {
+						"value": "[parameters('exceldestination_properties_typeProperties_database')]"
+					},
+					"exceldestination_properties_typeProperties_userName": {
+						"value": "[parameters('exceldestination_properties_typeProperties_userName')]"
+					},
+					"excelorderes_properties_typeProperties_server": {
+						"value": "[parameters('excelorderes_properties_typeProperties_server')]"
+					},
+					"excelorderes_properties_typeProperties_database": {
+						"value": "[parameters('excelorderes_properties_typeProperties_database')]"
+					},
+					"excelorderes_properties_typeProperties_userName": {
+						"value": "[parameters('excelorderes_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DastagirAdf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"excelorders_connectionString": {
+						"value": "[parameters('excelorders_connectionString')]"
+					},
+					"excelsource_connectionString": {
+						"value": "[parameters('excelsource_connectionString')]"
+					},
+					"execl_connectionString": {
+						"value": "[parameters('execl_connectionString')]"
+					},
+					"json_connectionString": {
+						"value": "[parameters('json_connectionString')]"
+					},
+					"jsonapin_password": {
+						"value": "[parameters('jsonapin_password')]"
+					},
+					"jsonsource_connectionString": {
+						"value": "[parameters('jsonsource_connectionString')]"
+					},
+					"newservice_connectionString": {
+						"value": "[parameters('newservice_connectionString')]"
+					},
+					"salesdatas_password": {
+						"value": "[parameters('salesdatas_password')]"
+					},
+					"salesdestination_password": {
+						"value": "[parameters('salesdestination_password')]"
+					},
+					"tail5_connectionString": {
+						"value": "[parameters('tail5_connectionString')]"
+					},
+					"trail1_connectionString": {
+						"value": "[parameters('trail1_connectionString')]"
+					},
+					"trail2_connectionString": {
+						"value": "[parameters('trail2_connectionString')]"
+					},
+					"traildata2_connectionString": {
+						"value": "[parameters('traildata2_connectionString')]"
+					},
+					"trailmetadata1_connectionString": {
+						"value": "[parameters('trailmetadata1_connectionString')]"
+					},
+					"jsonapin_properties_typeProperties_server": {
+						"value": "[parameters('jsonapin_properties_typeProperties_server')]"
+					},
+					"jsonapin_properties_typeProperties_database": {
+						"value": "[parameters('jsonapin_properties_typeProperties_database')]"
+					},
+					"jsonapin_properties_typeProperties_userName": {
+						"value": "[parameters('jsonapin_properties_typeProperties_userName')]"
+					},
+					"salesdatas_properties_typeProperties_server": {
+						"value": "[parameters('salesdatas_properties_typeProperties_server')]"
+					},
+					"salesdatas_properties_typeProperties_database": {
+						"value": "[parameters('salesdatas_properties_typeProperties_database')]"
+					},
+					"salesdatas_properties_typeProperties_userName": {
+						"value": "[parameters('salesdatas_properties_typeProperties_userName')]"
+					},
+					"salesdestination_properties_typeProperties_server": {
+						"value": "[parameters('salesdestination_properties_typeProperties_server')]"
+					},
+					"salesdestination_properties_typeProperties_database": {
+						"value": "[parameters('salesdestination_properties_typeProperties_database')]"
+					},
+					"salesdestination_properties_typeProperties_userName": {
+						"value": "[parameters('salesdestination_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DastagirAdf_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "DastagirAdf_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DastagirAdf_ArmTemplate_1')]"
+			]
+		}
+	]
+}
