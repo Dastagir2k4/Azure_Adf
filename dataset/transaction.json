@@ -1,0 +1,23 @@
+{
+	"name": "transaction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "transactioncsv",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "dbo.EVent_Transaction.txt",
+				"container": "event-book"
+			},
+			"columnDelimiter": "",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

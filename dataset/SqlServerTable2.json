@@ -1,0 +1,86 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "onPremiseSqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "customer_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "product_id",
+				"type": "varchar"
+			},
+			{
+				"name": "payment_month",
+				"type": "varchar"
+			},
+			{
+				"name": "revenue_type",
+				"type": "varchar"
+			},
+			{
+				"name": "revenue",
+				"type": "varchar"
+			},
+			{
+				"name": "quantity",
+				"type": "varchar"
+			},
+			{
+				"name": "dimension_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_5",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_7",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_8",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_9",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dimension_10",
+				"type": "nvarchar"
+			},
+			{
+				"name": "companies",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "EVent_Transaction"
+		}
+	}
+}
