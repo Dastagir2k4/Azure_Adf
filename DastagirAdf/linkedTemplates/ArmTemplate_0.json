@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage6'"
 		},
+		"AzureBlobStorage7_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage7'"
+		},
 		"AzureSqlDatabase1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
@@ -42,6 +46,10 @@
 		"AzureSqlDatabase2_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
 		},
 		"ExcelLink_connectionString": {
 			"type": "secureString",
@@ -59,6 +67,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Restapi'"
 		},
+		"Snowflake_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Snowflake'"
+		},
 		"apijson_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'apijson'"
@@ -74,18 +86,6 @@
 		"exceldata_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'exceldata'"
-		},
-		"exceldest_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'exceldest'"
-		},
-		"exceldestination_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'exceldestination'"
-		},
-		"excelorderes_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'excelorderes'"
 		},
 		"AzureApiTable_properties_typeProperties_server": {
 			"type": "string",
@@ -123,6 +123,18 @@
 			"type": "string",
 			"defaultValue": "dasadmin"
 		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
 		"JsonSqlDatbase_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "dasddfderver.database.windows.net"
@@ -151,6 +163,18 @@
 			"type": "string",
 			"defaultValue": "dasadmin"
 		},
+		"Snowflake_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "EVENT_DB"
+		},
+		"Snowflake_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"Snowflake_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "IFMVOGF-KJB72356.snowflakecomputing.com"
+		},
 		"azurelink_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "dasddfderver.database.windows.net"
@@ -160,42 +184,6 @@
 			"defaultValue": "das"
 		},
 		"azurelink_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "dasadmin"
-		},
-		"exceldest_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "dasddfderver.database.windows.net"
-		},
-		"exceldest_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "das"
-		},
-		"exceldest_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "dasadmin"
-		},
-		"exceldestination_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "dasddfderver.database.windows.net"
-		},
-		"exceldestination_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "das"
-		},
-		"exceldestination_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "dasadmin"
-		},
-		"excelorderes_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "dasddfderver.database.windows.net"
-		},
-		"excelorderes_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "das"
-		},
-		"excelorderes_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "dasadmin"
 		}
@@ -310,6 +298,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage7')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage7_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -348,6 +349,28 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('AzureSqlDatabase2_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase3_password')]"
 					}
 				}
 			},
@@ -429,6 +452,29 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Snowflake')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SnowflakeV2",
+				"typeProperties": {
+					"authenticationType": "Basic",
+					"accountIdentifier": "KJB72356",
+					"user": "DASTAGIR2K",
+					"database": "[parameters('Snowflake_properties_typeProperties_database')]",
+					"warehouse": "COMPUTE_WH",
+					"role": "[parameters('Snowflake_properties_typeProperties_role')]",
+					"host": "[parameters('Snowflake_properties_typeProperties_host')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Snowflake_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/apijson')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -485,72 +531,6 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('exceldata_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/exceldest')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('exceldest_properties_typeProperties_server')]",
-					"database": "[parameters('exceldest_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('exceldest_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('exceldest_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/exceldestination')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('exceldestination_properties_typeProperties_server')]",
-					"database": "[parameters('exceldestination_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('exceldestination_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('exceldestination_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/excelorderes')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"server": "[parameters('excelorderes_properties_typeProperties_server')]",
-					"database": "[parameters('excelorderes_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('excelorderes_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('excelorderes_password')]"
-					}
 				}
 			},
 			"dependsOn": []

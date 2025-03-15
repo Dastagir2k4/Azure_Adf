@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage6'"
 		},
+		"AzureBlobStorage7_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage7'"
+		},
 		"AzureSqlDatabase1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
@@ -42,6 +46,10 @@
 		"AzureSqlDatabase2_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
 		},
 		"ExcelLink_connectionString": {
 			"type": "secureString",
@@ -58,6 +66,10 @@
 		"Restapi_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Restapi'"
+		},
+		"Snowflake_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Snowflake'"
 		},
 		"apijson_connectionString": {
 			"type": "secureString",
@@ -115,6 +127,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'newservice'"
 		},
+		"onPremiseSqlServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'onPremiseSqlServer'"
+		},
+		"onpremisesqlserverlink_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'onpremisesqlserverlink'"
+		},
 		"salesdatas_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'salesdatas'"
@@ -122,6 +142,14 @@
 		"salesdestination_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'salesdestination'"
+		},
+		"snowflakelinkservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'snowflakelinkservice'"
+		},
+		"stagingSerice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'stagingSerice'"
 		},
 		"tail5_connectionString": {
 			"type": "secureString",
@@ -142,6 +170,10 @@
 		"trailmetadata1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'trailmetadata1'"
+		},
+		"transactioncsv_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'transactioncsv'"
 		},
 		"AzureApiTable_properties_typeProperties_server": {
 			"type": "string",
@@ -179,6 +211,18 @@
 			"type": "string",
 			"defaultValue": "dasadmin"
 		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
 		"JsonSqlDatbase_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "dasddfderver.database.windows.net"
@@ -206,6 +250,18 @@
 		"Restapi_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "dasadmin"
+		},
+		"Snowflake_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "EVENT_DB"
+		},
+		"Snowflake_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"Snowflake_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "IFMVOGF-KJB72356.snowflakecomputing.com"
 		},
 		"azurelink_properties_typeProperties_server": {
 			"type": "string",
@@ -267,6 +323,38 @@
 			"type": "string",
 			"defaultValue": "dasadmin"
 		},
+		"onPremiseSqlServer_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"onPremiseSqlServer_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"onPremiseSqlServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"onpremiselink_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'onpremiselink'"
+		},
+		"onpremisesnowflake_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'onpremisesnowflake'"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
 		"salesdatas_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "dasddfderver.database.windows.net"
@@ -290,6 +378,18 @@
 		"salesdestination_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "dasadmin"
+		},
+		"snowflakelinkservice_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "EVENT_DB"
+		},
+		"snowflakelinkservice_properties_typeProperties_role": {
+			"type": "string",
+			"defaultValue": "ACCOUNTADMIN"
+		},
+		"snowflakelinkservice_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "IFMVOGF-KJB72356.snowflakecomputing.com"
 		},
 		"containerUri": {
 			"type": "string",
@@ -339,11 +439,17 @@
 					"AzureBlobStorage6_connectionString": {
 						"value": "[parameters('AzureBlobStorage6_connectionString')]"
 					},
+					"AzureBlobStorage7_connectionString": {
+						"value": "[parameters('AzureBlobStorage7_connectionString')]"
+					},
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
 					},
 					"AzureSqlDatabase2_password": {
 						"value": "[parameters('AzureSqlDatabase2_password')]"
+					},
+					"AzureSqlDatabase3_password": {
+						"value": "[parameters('AzureSqlDatabase3_password')]"
 					},
 					"ExcelLink_connectionString": {
 						"value": "[parameters('ExcelLink_connectionString')]"
@@ -357,6 +463,9 @@
 					"Restapi_password": {
 						"value": "[parameters('Restapi_password')]"
 					},
+					"Snowflake_password": {
+						"value": "[parameters('Snowflake_password')]"
+					},
 					"apijson_connectionString": {
 						"value": "[parameters('apijson_connectionString')]"
 					},
@@ -368,15 +477,6 @@
 					},
 					"exceldata_connectionString": {
 						"value": "[parameters('exceldata_connectionString')]"
-					},
-					"exceldest_password": {
-						"value": "[parameters('exceldest_password')]"
-					},
-					"exceldestination_password": {
-						"value": "[parameters('exceldestination_password')]"
-					},
-					"excelorderes_password": {
-						"value": "[parameters('excelorderes_password')]"
 					},
 					"AzureApiTable_properties_typeProperties_server": {
 						"value": "[parameters('AzureApiTable_properties_typeProperties_server')]"
@@ -405,6 +505,15 @@
 					"AzureSqlDatabase2_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
 					},
+					"AzureSqlDatabase3_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
+					},
 					"JsonSqlDatbase_properties_typeProperties_server": {
 						"value": "[parameters('JsonSqlDatbase_properties_typeProperties_server')]"
 					},
@@ -426,6 +535,15 @@
 					"Restapi_properties_typeProperties_userName": {
 						"value": "[parameters('Restapi_properties_typeProperties_userName')]"
 					},
+					"Snowflake_properties_typeProperties_database": {
+						"value": "[parameters('Snowflake_properties_typeProperties_database')]"
+					},
+					"Snowflake_properties_typeProperties_role": {
+						"value": "[parameters('Snowflake_properties_typeProperties_role')]"
+					},
+					"Snowflake_properties_typeProperties_host": {
+						"value": "[parameters('Snowflake_properties_typeProperties_host')]"
+					},
 					"azurelink_properties_typeProperties_server": {
 						"value": "[parameters('azurelink_properties_typeProperties_server')]"
 					},
@@ -434,33 +552,6 @@
 					},
 					"azurelink_properties_typeProperties_userName": {
 						"value": "[parameters('azurelink_properties_typeProperties_userName')]"
-					},
-					"exceldest_properties_typeProperties_server": {
-						"value": "[parameters('exceldest_properties_typeProperties_server')]"
-					},
-					"exceldest_properties_typeProperties_database": {
-						"value": "[parameters('exceldest_properties_typeProperties_database')]"
-					},
-					"exceldest_properties_typeProperties_userName": {
-						"value": "[parameters('exceldest_properties_typeProperties_userName')]"
-					},
-					"exceldestination_properties_typeProperties_server": {
-						"value": "[parameters('exceldestination_properties_typeProperties_server')]"
-					},
-					"exceldestination_properties_typeProperties_database": {
-						"value": "[parameters('exceldestination_properties_typeProperties_database')]"
-					},
-					"exceldestination_properties_typeProperties_userName": {
-						"value": "[parameters('exceldestination_properties_typeProperties_userName')]"
-					},
-					"excelorderes_properties_typeProperties_server": {
-						"value": "[parameters('excelorderes_properties_typeProperties_server')]"
-					},
-					"excelorderes_properties_typeProperties_database": {
-						"value": "[parameters('excelorderes_properties_typeProperties_database')]"
-					},
-					"excelorderes_properties_typeProperties_userName": {
-						"value": "[parameters('excelorderes_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -479,6 +570,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"exceldest_password": {
+						"value": "[parameters('exceldest_password')]"
+					},
+					"exceldestination_password": {
+						"value": "[parameters('exceldestination_password')]"
+					},
+					"excelorderes_password": {
+						"value": "[parameters('excelorderes_password')]"
 					},
 					"excelorders_connectionString": {
 						"value": "[parameters('excelorders_connectionString')]"
@@ -507,6 +607,12 @@
 					"salesdestination_password": {
 						"value": "[parameters('salesdestination_password')]"
 					},
+					"snowflakelinkservice_password": {
+						"value": "[parameters('snowflakelinkservice_password')]"
+					},
+					"stagingSerice_connectionString": {
+						"value": "[parameters('stagingSerice_connectionString')]"
+					},
 					"tail5_connectionString": {
 						"value": "[parameters('tail5_connectionString')]"
 					},
@@ -521,6 +627,36 @@
 					},
 					"trailmetadata1_connectionString": {
 						"value": "[parameters('trailmetadata1_connectionString')]"
+					},
+					"transactioncsv_connectionString": {
+						"value": "[parameters('transactioncsv_connectionString')]"
+					},
+					"exceldest_properties_typeProperties_server": {
+						"value": "[parameters('exceldest_properties_typeProperties_server')]"
+					},
+					"exceldest_properties_typeProperties_database": {
+						"value": "[parameters('exceldest_properties_typeProperties_database')]"
+					},
+					"exceldest_properties_typeProperties_userName": {
+						"value": "[parameters('exceldest_properties_typeProperties_userName')]"
+					},
+					"exceldestination_properties_typeProperties_server": {
+						"value": "[parameters('exceldestination_properties_typeProperties_server')]"
+					},
+					"exceldestination_properties_typeProperties_database": {
+						"value": "[parameters('exceldestination_properties_typeProperties_database')]"
+					},
+					"exceldestination_properties_typeProperties_userName": {
+						"value": "[parameters('exceldestination_properties_typeProperties_userName')]"
+					},
+					"excelorderes_properties_typeProperties_server": {
+						"value": "[parameters('excelorderes_properties_typeProperties_server')]"
+					},
+					"excelorderes_properties_typeProperties_database": {
+						"value": "[parameters('excelorderes_properties_typeProperties_database')]"
+					},
+					"excelorderes_properties_typeProperties_userName": {
+						"value": "[parameters('excelorderes_properties_typeProperties_userName')]"
 					},
 					"jsonapin_properties_typeProperties_server": {
 						"value": "[parameters('jsonapin_properties_typeProperties_server')]"
@@ -548,6 +684,15 @@
 					},
 					"salesdestination_properties_typeProperties_userName": {
 						"value": "[parameters('salesdestination_properties_typeProperties_userName')]"
+					},
+					"snowflakelinkservice_properties_typeProperties_database": {
+						"value": "[parameters('snowflakelinkservice_properties_typeProperties_database')]"
+					},
+					"snowflakelinkservice_properties_typeProperties_role": {
+						"value": "[parameters('snowflakelinkservice_properties_typeProperties_role')]"
+					},
+					"snowflakelinkservice_properties_typeProperties_host": {
+						"value": "[parameters('snowflakelinkservice_properties_typeProperties_host')]"
 					}
 				}
 			},
@@ -573,6 +718,56 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'DastagirAdf_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "DastagirAdf_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"onPremiseSqlServer_password": {
+						"value": "[parameters('onPremiseSqlServer_password')]"
+					},
+					"onpremisesqlserverlink_password": {
+						"value": "[parameters('onpremisesqlserverlink_password')]"
+					},
+					"onPremiseSqlServer_properties_typeProperties_server": {
+						"value": "[parameters('onPremiseSqlServer_properties_typeProperties_server')]"
+					},
+					"onPremiseSqlServer_properties_typeProperties_database": {
+						"value": "[parameters('onPremiseSqlServer_properties_typeProperties_database')]"
+					},
+					"onPremiseSqlServer_properties_typeProperties_userName": {
+						"value": "[parameters('onPremiseSqlServer_properties_typeProperties_userName')]"
+					},
+					"onpremiselink_sasUri": {
+						"value": "[parameters('onpremiselink_sasUri')]"
+					},
+					"onpremisesnowflake_sasUri": {
+						"value": "[parameters('onpremisesnowflake_sasUri')]"
+					},
+					"onpremisesqlserverlink_properties_typeProperties_server": {
+						"value": "[parameters('onpremisesqlserverlink_properties_typeProperties_server')]"
+					},
+					"onpremisesqlserverlink_properties_typeProperties_database": {
+						"value": "[parameters('onpremisesqlserverlink_properties_typeProperties_database')]"
+					},
+					"onpremisesqlserverlink_properties_typeProperties_userName": {
+						"value": "[parameters('onpremisesqlserverlink_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DastagirAdf_ArmTemplate_2')]"
 			]
 		}
 	]

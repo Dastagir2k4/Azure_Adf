@@ -26,10 +26,16 @@
 		"AzureBlobStorage6_connectionString": {
 			"value": ""
 		},
+		"AzureBlobStorage7_connectionString": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
 		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_password": {
 			"value": ""
 		},
 		"ExcelLink_connectionString": {
@@ -42,6 +48,9 @@
 			"value": ""
 		},
 		"Restapi_password": {
+			"value": ""
+		},
+		"Snowflake_password": {
 			"value": ""
 		},
 		"apijson_connectionString": {
@@ -86,10 +95,22 @@
 		"newservice_connectionString": {
 			"value": ""
 		},
+		"onPremiseSqlServer_password": {
+			"value": ""
+		},
+		"onpremisesqlserverlink_password": {
+			"value": ""
+		},
 		"salesdatas_password": {
 			"value": ""
 		},
 		"salesdestination_password": {
+			"value": ""
+		},
+		"snowflakelinkservice_password": {
+			"value": ""
+		},
+		"stagingSerice_connectionString": {
 			"value": ""
 		},
 		"tail5_connectionString": {
@@ -105,6 +126,9 @@
 			"value": ""
 		},
 		"trailmetadata1_connectionString": {
+			"value": ""
+		},
+		"transactioncsv_connectionString": {
 			"value": ""
 		},
 		"AzureApiTable_properties_typeProperties_server": {
@@ -134,6 +158,15 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "dasadmin"
 		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "dasddfderver.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "das"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"value": "dasadmin"
+		},
 		"JsonSqlDatbase_properties_typeProperties_server": {
 			"value": "dasddfderver.database.windows.net"
 		},
@@ -154,6 +187,15 @@
 		},
 		"Restapi_properties_typeProperties_userName": {
 			"value": "dasadmin"
+		},
+		"Snowflake_properties_typeProperties_database": {
+			"value": "EVENT_DB"
+		},
+		"Snowflake_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"Snowflake_properties_typeProperties_host": {
+			"value": "IFMVOGF-KJB72356.snowflakecomputing.com"
 		},
 		"azurelink_properties_typeProperties_server": {
 			"value": "dasddfderver.database.windows.net"
@@ -200,6 +242,30 @@
 		"jsonapin_properties_typeProperties_userName": {
 			"value": "dasadmin"
 		},
+		"onPremiseSqlServer_properties_typeProperties_server": {
+			"value": "dasddfderver.database.windows.net"
+		},
+		"onPremiseSqlServer_properties_typeProperties_database": {
+			"value": "das"
+		},
+		"onPremiseSqlServer_properties_typeProperties_userName": {
+			"value": "dasadmin"
+		},
+		"onpremiselink_sasUri": {
+			"value": ""
+		},
+		"onpremisesnowflake_sasUri": {
+			"value": ""
+		},
+		"onpremisesqlserverlink_properties_typeProperties_server": {
+			"value": "dasddfderver.database.windows.net"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_database": {
+			"value": "das"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_userName": {
+			"value": "dasadmin"
+		},
 		"salesdatas_properties_typeProperties_server": {
 			"value": "dasddfderver.database.windows.net"
 		},
@@ -217,6 +283,15 @@
 		},
 		"salesdestination_properties_typeProperties_userName": {
 			"value": "dasadmin"
+		},
+		"snowflakelinkservice_properties_typeProperties_database": {
+			"value": "EVENT_DB"
+		},
+		"snowflakelinkservice_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"snowflakelinkservice_properties_typeProperties_host": {
+			"value": "IFMVOGF-KJB72356.snowflakecomputing.com"
 		}
 	}
 }

@@ -1,0 +1,440 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DastagirAdf"
+		},
+		"onPremiseSqlServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'onPremiseSqlServer'"
+		},
+		"onpremisesqlserverlink_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'onpremisesqlserverlink'"
+		},
+		"onPremiseSqlServer_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"onPremiseSqlServer_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"onPremiseSqlServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		},
+		"onpremiselink_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'onpremiselink'"
+		},
+		"onpremisesnowflake_sasUri": {
+			"type": "secureString",
+			"metadata": "Secure string for 'sasUri' of 'onpremisesnowflake'"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "dasddfderver.database.windows.net"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "das"
+		},
+		"onpremisesqlserverlink_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dasadmin"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Transactioncsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "transactioncsv",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "event-book"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/exceldestinaltion')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "salesdestination",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"destination": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Sales",
+					"table": {
+						"value": "@dataset().destination",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/transaction')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "transactioncsv",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "dbo.EVent_Transaction.txt",
+						"container": "event-book"
+					},
+					"columnDelimiter": "",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/onPremiseSqlServer')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('onPremiseSqlServer_properties_typeProperties_server')]",
+					"database": "[parameters('onPremiseSqlServer_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('onPremiseSqlServer_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('onPremiseSqlServer_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/onpremiselink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"sasUri": "[parameters('onpremiselink_sasUri')]"
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/onpremisesnowflake')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"sasUri": "[parameters('onpremisesnowflake_sasUri')]"
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/onpremisesqlserverlink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('onpremisesqlserverlink_properties_typeProperties_server')]",
+					"database": "[parameters('onpremisesqlserverlink_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('onpremisesqlserverlink_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('onpremisesqlserverlink_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "onPremiseSqlServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "EVent_Transaction"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/onPremiseSqlServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "onPremiseSqlServer",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"premise": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "customer_id",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "product_id",
+						"type": "varchar"
+					},
+					{
+						"name": "payment_month",
+						"type": "varchar"
+					},
+					{
+						"name": "revenue_type",
+						"type": "varchar"
+					},
+					{
+						"name": "revenue",
+						"type": "varchar"
+					},
+					{
+						"name": "quantity",
+						"type": "varchar"
+					},
+					{
+						"name": "dimension_1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_6",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_7",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_8",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_9",
+						"type": "nvarchar"
+					},
+					{
+						"name": "dimension_10",
+						"type": "nvarchar"
+					},
+					{
+						"name": "companies",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": {
+						"value": "@dataset().premise",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/onPremiseSqlServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/OnPremiseTosSnowflake')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "foreachonpremsnowflake",
+						"type": "ForEach",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@variables('table_data')",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "copy_onpremise_snowflake",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "SqlServerSource",
+											"queryTimeout": "02:00:00",
+											"partitionOption": "None"
+										},
+										"sink": {
+											"type": "SnowflakeV2Sink",
+											"importSettings": {
+												"type": "SnowflakeImportCopyCommand"
+											}
+										},
+										"enableStaging": true,
+										"stagingSettings": {
+											"linkedServiceName": {
+												"referenceName": "onpremiselink",
+												"type": "LinkedServiceReference"
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "SqlServerTable2",
+											"type": "DatasetReference",
+											"parameters": {
+												"premise": {
+													"value": "@item()",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "SnowflakeTable2",
+											"type": "DatasetReference",
+											"parameters": {
+												"snowflake": {
+													"value": "@item()",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"table_data": {
+						"type": "Array",
+						"defaultValue": [
+							"EVENT_BOOKING",
+							"EVENT_CUSTOMERSSS",
+							"EVENT_TRANSACTION",
+							"COUNTRY_REGION"
+						]
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SqlServerTable2')]",
+				"[concat(variables('factoryId'), '/linkedServices/onpremiselink')]"
+			]
+		}
+	]
+}
