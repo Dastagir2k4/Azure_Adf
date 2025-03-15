@@ -5,6 +5,11 @@
 			"referenceName": "onPremiseSqlServer",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"premise": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
@@ -80,7 +85,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "EVent_Transaction"
+			"table": {
+				"value": "@dataset().premise",
+				"type": "Expression"
+			}
 		}
 	}
 }

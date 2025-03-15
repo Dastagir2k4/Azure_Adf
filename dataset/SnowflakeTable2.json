@@ -5,12 +5,20 @@
 			"referenceName": "Snowflake",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"snowflake": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": "stg",
-			"table": "event_transaction"
+			"schema": "STG",
+			"table": {
+				"value": "@dataset().snowflake",
+				"type": "Expression"
+			}
 		}
 	}
 }
