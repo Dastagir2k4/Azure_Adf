@@ -1,0 +1,21 @@
+{
+	"name": "onpremisesqlserverlink",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "dasddfderver.database.windows.net",
+			"database": "das",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "dasadmin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyODc0YzEwYi02NTMzLTQyMDctYTM5MC0wNDI1MDQ0ZTVmNGQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
